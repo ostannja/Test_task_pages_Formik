@@ -1,0 +1,12 @@
+.background-image {
+  object-fit: fill;
+  height: calc(100vh - 80px);
+  background-repeat: repeat;
+}
+
+.main {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: #232334;
+  height: calc(100vh - 80px);
+}

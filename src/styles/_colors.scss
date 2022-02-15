@@ -1,0 +1,29 @@
+$colors: (
+  navbar: #1e1e2e,
+  navbar-left: #232334,
+  accordion-closed-item: #9f9fa2,
+  accordion-closed-item-background: #232334,
+  accordion-open-item: #ffffff,
+  accordion-open-item-background: #1e1e2e,
+  icon-pressed: #4973cb,
+  icon: #9f9fa2,
+  border: #333341,
+  label: #bbbabf,
+  input-border: #73737b,
+  input-color: #bcbbbf,
+  border-color-focus: #c0d4ff,
+  form-background: #3d3d4c,
+  form-blue: #5790ff,
+  invalid-feedback-background: #494955,
+  invalid-feedback-color: #bebec2,
+);
+
+$gradient: repeating-linear-gradient(135deg, #252534, #484855);
+
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+  @warn 'Unknown `#{$key}` in $colors.';
+  @return null;
+}

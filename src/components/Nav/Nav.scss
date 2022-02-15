@@ -1,0 +1,205 @@
+@import '../../styles/_colors.scss';
+
+.navbar-container {
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid color(border);
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-end;
+  background-color: color(navbar);
+}
+
+.right-menu {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 15px 0;
+  .search {
+    background-color: inherit;
+    background-image: url('../../../src/img/search.svg');
+    background-repeat: no-repeat;
+    background-position: left 13.33px center;
+    color: #ffffff;
+    padding-left: 40px;
+    width: 210px;
+  }
+  &-icon {
+    color: #b3b3b5;
+    font-size: 20px;
+    margin: 0 20px;
+    &:nth-of-type(2) {
+      font-size: 25px;
+    }
+  }
+}
+
+.burger {
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  z-index: 20;
+  display: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row nowrap;
+  width: 210px;
+  cursor: pointer;
+  &-icon {
+    color: #99acd0;
+    transition: transform 0.3s ease-in-out;
+    font-size: 20px;
+  }
+}
+
+.left-navbar {
+  z-index: 10;
+  list-style: none;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: color(navbar-left);
+  position: fixed;
+  top: 0;
+  left: -260px;
+  height: 100vh;
+  width: 260px;
+  margin-top: 80px;
+  transition: transform 0.3s ease-in-out;
+  border-right: 1px solid color(border);
+}
+
+.accordion {
+  background-color: color(navbar-left);
+
+  &-group {
+    background-color: color(navbar-left);
+    display: flex;
+    align-items: center;
+
+    &-item {
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: color(accordion-closed-item);
+      padding: 13px 24px;
+      width: 100%;
+    }
+  }
+
+  &-icon {
+    color: color(icon);
+    margin-right: 10px;
+  }
+
+  &-button {
+    background-color: color(accordion-closed-item-background);
+    color: color(accordion-closed-item);
+    padding: 15px 24px;
+
+    &:not(.collapsed) {
+      color: color(accordion-open-item);
+      background-color: color(accordion-open-item-background);
+
+      .accordion-icon {
+        color: color(icon-pressed);
+      }
+    }
+    &:focus {
+      border-color: unset;
+      box-shadow: none;
+    }
+    &::after {
+      background-image: url('../../../src/img/chevron-right.svg');
+      background-size: 10px;
+      width: 10px;
+      height: 10px;
+      margin-top: calc((25px - 10px) / 2);
+    }
+    &:not(.collapsed)::after {
+      background-image: url('../../../src/img/chevron-right.svg');
+      transform: rotate(90deg);
+    }
+    &:hover {
+      background-color: color(accordion-open-item-background);
+      color: color(accordion-open-item);
+
+      .accordion-icon {
+        color: color(icon-pressed);
+      }
+    }
+  }
+
+  &-item {
+    border: none;
+    background-color: color(accordion-closed-item-background);
+    &:first-of-type .accordion-button {
+      border-radius: 0;
+    }
+  }
+
+  &-body {
+    color: #7f7f86;
+    background-color: color(accordion-open-item-background);
+    padding: 8px 24px 8px 48px;
+    font-size: 14px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+
+    &:hover {
+      background-color: color(accordion-closed-item-background);
+      color: color(accordion-open-item);
+    }
+  }
+}
+
+.sidebar {
+  opacity: 1;
+  z-index: -10;
+  list-style: none;
+  flex-flow: column nowrap;
+  background: $gradient;
+  position: fixed;
+  top: 0;
+  left: 260px;
+  height: calc(100vh - 80px);
+  width: 710px;
+  transition: opacity 0.3s ease-in-out;
+  border-right: 1px solid color(border);
+  color: white;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 90%;
+    margin: 160px auto;
+  }
+  &-title {
+    font-size: 70px;
+    line-height: 80px;
+    color: #5790ff;
+  }
+  &-subtitle {
+    font-size: 70px;
+    line-height: 80px;
+    width: 70%;
+    color: #e5e5e6;
+  }
+  &-text {
+    color: #e5e5e6;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    width: 75%;
+  }
+
+  .button {
+    width: 220px;
+    height: 50px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+  }
+}

@@ -1,0 +1,235 @@
+@import '../styles/_colors.scss';
+
+$input-border-radius: 5px;
+$box-shadow: 0 0 0 8px rgba(51, 51, 65, 0.25);
+
+.template-background {
+  background: $gradient;
+  height: 100vh;
+}
+
+.form-container {
+  box-shadow: $box-shadow;
+  background-color: color(form-background);
+  width: 645px;
+  border-radius: $input-border-radius;
+  height: fit-content;
+}
+
+.form-wrapper {
+  max-width: 404px;
+}
+
+.form {
+  max-width: 360px;
+  position: relative;
+  color: #ffffff;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-control {
+  border-color: color(input-border);
+  &.is-valid,
+  &.is-valid:focus {
+    border-color: color(input-border);
+  }
+  &:focus,
+  &.is-valid:focus,
+  &.is-invalid:focus {
+    box-shadow: $box-shadow;
+    background-color: inherit;
+    border-color: color(border-color-focus);
+  }
+  &.is-invalid,
+  &.is-valid,
+  &.input-icon {
+    background-repeat: no-repeat;
+    background-position: right 13.33px center;
+    font-size: 18px;
+    height: 40px;
+    background-color: inherit;
+    border-radius: $input-border-radius;
+  }
+}
+
+label {
+  font-size: 15px;
+  line-height: 16px;
+  color: color(label);
+}
+
+.username,
+.email,
+.timezone {
+  .form-control {
+    color: color(input-color);
+    font-size: 15px;
+  }
+  .is-valid {
+    background-image: none;
+  }
+}
+
+.timezone {
+  .form-control {
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-image: url('../img/chevron-down.svg');
+  }
+}
+.password {
+  .form-control {
+    font-size: 23px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-image: url('../img/password-eye.svg');
+
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
+
+  .is-invalid,
+  .is-valid {
+    background-image: url('../img/password-eye.svg');
+  }
+}
+
+.sign-in,
+.create-acc {
+  .invalid-feedback {
+    position: absolute;
+    white-space: pre;
+    top: calc(50% - 12px);
+    transform: translateY(-50%);
+    width: fit-content;
+    max-width: 250px;
+    padding: 20px 15px 15px 10px;
+    border-radius: $input-border-radius;
+    background-color: color(invalid-feedback-background);
+    box-shadow: $box-shadow;
+    color: color(invalid-feedback-color);
+    margin-top: 0;
+  }
+  .triangle {
+    position: absolute;
+    right: -20px;
+    top: 35%;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+}
+
+.sign-in {
+  .invalid-feedback {
+    left: -30px;
+    transform: translateX(-100%);
+  }
+  .triangle {
+    left: 99%;
+    border-left: 15px color(invalid-feedback-background);
+  }
+}
+
+.create-acc {
+  .invalid-feedback {
+    right: -30px;
+    transform: translateX(100%);
+  }
+  .triangle {
+    right: 99%;
+    border-right: 15px solid color(invalid-feedback-background);
+  }
+}
+
+.checkbox {
+  &-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      &:checked ~ .checkbox-input-styled {
+        background-color: color(form-blue);
+      }
+      &:checked ~ .checkbox-input-styled:after {
+        display: block;
+      }
+    }
+
+    &:hover input ~ .checkbox-input-styled {
+      background-color: color(form-blue);
+    }
+
+    .checkbox-input-styled:after {
+      left: 7px;
+      top: 3px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+  &-input {
+    &-styled {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      border: 1px solid color(input-border);
+      background-color: inherit;
+      border-radius: 3px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: none;
+      }
+    }
+  }
+  &-label {
+    a {
+      color: color(form-blue);
+      &:hover {
+        color: color(form-blue);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.button {
+  height: 45px;
+  font-weight: 500;
+  background-color: color(form-blue);
+  color: #ffffff;
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+.forgot-pass {
+  color: color(form-blue);
+}
